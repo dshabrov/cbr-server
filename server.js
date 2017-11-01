@@ -1,7 +1,6 @@
 var express = require('express');
 var cors = require('cors');
 var fetch = require('node-fetch');
-var xml2json  = require('xml2json');
 
 var app = express();
 app.use(cors());
@@ -17,7 +16,7 @@ app.get('/', (request, response) => {
             return result.text();
         })
         .then(text => {
-            response.send(xml2json.toJson(text));
+            response.send(text);
         })
         .catch(error => { 
             console.log(error.message);
